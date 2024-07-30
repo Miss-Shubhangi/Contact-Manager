@@ -2,7 +2,7 @@ import express from 'express'
 import dotenv from 'dotenv'
 import mongoose from 'mongoose'
 import cors from 'cors'
-
+import { postRegister ,postLogin } from './controllers/user.js'
 dotenv.config()
 const app= express()
 app.use(cors())
@@ -15,11 +15,18 @@ const dbConnetion = async()=>{
         console.log("Database connected Successfully 🎁🔗")
     }
     else {
-        console.log("Database Not Coonected⛓️‍💥❌")
+        console.log("Database Not Coonected ⛓️‍💥❌")
     }
 } 
 dbConnetion()
 
+app.get('/health', (req,res)=>{
+    res.send("Server is Up and Running")
+})
+
+app.post('/register',postRegister)
+
+app.post('/login', postLogin)
 
 const PORT = process.env.PORT
 
