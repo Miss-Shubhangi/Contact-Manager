@@ -3,6 +3,7 @@ import dotenv from 'dotenv'
 import mongoose from 'mongoose'
 import cors from 'cors'
 import { postRegister ,postLogin } from './controllers/user.js'
+import { postContact ,getContact} from './controllers/contact.js'
 dotenv.config()
 const app= express()
 app.use(cors())
@@ -27,6 +28,10 @@ app.get('/health', (req,res)=>{
 app.post('/register',postRegister)
 
 app.post('/login', postLogin)
+
+app.post('/addcontact', postContact )
+
+app.get('/getcontact', getContact)
 
 const PORT = process.env.PORT
 

@@ -2,7 +2,7 @@ import { Schema,model } from "mongoose";
 
 const contactSchema = new Schema(
     {
-        fullName:{
+        contactName:{
             type:String,
             required:true
         },
@@ -18,7 +18,12 @@ const contactSchema = new Schema(
         dob:{
             type:Date,
             required:true
-        }
+        },
+        user:{
+            type: Schema.Types.ObjectId,
+            ref: "User",
+            required:true
+          }
     }
 )
 
