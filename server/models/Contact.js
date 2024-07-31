@@ -13,7 +13,7 @@ const contactSchema = new Schema(
         email:{
             type:String,
             required:true,
-            unique:true
+           
         },
         dob:{
             type:Date,
@@ -24,6 +24,8 @@ const contactSchema = new Schema(
             ref: "User",
             required:true
           }
+    },{
+        timestamps:true
     }
 )
 
